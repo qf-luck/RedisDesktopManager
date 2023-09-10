@@ -217,7 +217,7 @@ void RespExtServer::DataFormattersManager::onDecoded(
   auto decoded = QString::fromUtf8(worker->response);
 
   if (headers.contains("Content-Type")) {
-    if (headers["Content-Type"].toLower() == "application/json") {
+    if (headers["Content-Type"].toLower().startsWith("application/json")) {
       format = "json";
     } else if (headers["Content-Type"].toLower().startsWith("image")) {
       format = "image";
